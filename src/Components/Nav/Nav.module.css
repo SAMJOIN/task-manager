@@ -1,0 +1,97 @@
+.nav {
+    grid-area: Navigation;
+    background: linear-gradient(to bottom, rgba(68, 68, 68, 0.83), rgb(72, 72, 72), rgba(48, 48, 48, 0.887));
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 12vw;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 100px;
+    width: 100%;
+    display: flex;
+}
+
+.link:active {
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.361);
+}
+
+.link p {
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    font-size: 80%;
+}
+
+.sign {
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    font-size: 80%;
+}
+
+.linkBlock:hover {
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.339);
+}
+
+.linkBlock {
+    /* margin: 10px 40px 10px 40px; */
+    margin: 0 10px 0 10px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1500px) {
+    .linkBlock {
+        padding: 0 40px 0 40px;
+    }
+    .link {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .nav {
+        align-items: center;
+    }
+    .link p {
+        display: none;
+    }
+
+    .sign {
+        font-size: 40px;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    body {
+        font-size: 15px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .sign {
+        font-size: 30px;
+    }
+    .linkBlock {
+        padding: 0 30px 0 30px;
+    }
+
+
+}

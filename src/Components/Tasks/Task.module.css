@@ -1,0 +1,58 @@
+.task {
+    text-align: justify;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+    word-wrap: break-word;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 90%;
+    box-shadow: 0 0 5px 0 black;
+    display: flex;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+}
+
+.task:hover {
+    scale: 1.03;
+    transition: 0.2s;
+}
+
+.taskLabel {
+    width: 80%;
+    padding: 20px;
+}
+.dateLabel {
+    width: 20%;
+    padding: 20px 10px 20px 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    color: white;
+    font-variant: small-caps;
+}
+.endDeadline {
+    width: 20%;
+    padding: 10px 5px 10px 25px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    color: white;
+    font-variant: small-caps;
+    writing-mode: vertical-lr;
+}
+
+@media (max-width: 1500px) {
+    .endDeadline {
+        padding: 10px 5px 10px 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .dateLabel {
+        font-size: 10px;
+    }
+    .endDeadline {
+        padding: 10px 5px 10px 10px;
+    }
+}
+
