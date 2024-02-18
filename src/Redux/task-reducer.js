@@ -96,7 +96,7 @@ export const getTasks = () => {
             then(response => {
                 if (response) {
                     response.forEach(task => {
-                        dispatch(addTask(task._id, task.task, task.deadline, task.type));
+                        dispatch(addTask(task.id, task.task, task.deadline, task.type));
                         debugger;
                     });
                 }
@@ -128,10 +128,11 @@ const generateId = () => {
 
 export const addTasks = (task,deadline,tasksType) => {
     return (dispatch) => {
-        taskAPI.addTasks(task,deadline,tasksType).
+        const id = generateId();
+        taskAPI.addTasks(id, task,deadline,tasksType).
             then(response => {
                 if (response) {
-                    dispatch(addTask(generateId(), task, deadline, tasksType))
+                    dispatch(addTask(id, task, deadline, tasksType))
                     debugger;
                 }
                 else {

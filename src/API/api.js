@@ -13,8 +13,9 @@ export const taskAPI = {
         debugger;
         return response.data;
     },
-    async addTasks(task,deadline,type) {
+    async addTasks(id, task,deadline,type) {
         const response = await axios.post(`http://localhost:3001/tasks`, {
+            id,
             task,
             deadline,
             type
