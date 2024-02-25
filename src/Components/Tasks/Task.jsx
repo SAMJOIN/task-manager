@@ -4,6 +4,7 @@ import { deleteTask, editTasks, removeTask } from '../../Redux/task-reducer';
 import NewTaskForm from './newTaskForm';
 import { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
+import moment from 'moment';
 
 let Task = (props) => {
 
@@ -39,8 +40,11 @@ let Task = (props) => {
         return  now.getTime() < date.getTime();
     }
 
-    let [formOpen, toggleForm] = useState(false); // Состояние формы
+    const deadlineSoon = () => {
+        return moment(props.deadline) - moment() < 86400000;
+    }
 
+    let [formOpen, toggleForm] = useState(false); // Состояние формы
     return (
         <>
             <Draggable draggableId={props.draggableId} key={props.key} index={props.index}>
@@ -48,8 +52,8 @@ let Task = (props) => {
                     <div className={styles.task} onClick={openForm} {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}>
                         <div className={styles.taskLabel}>{props.task}</div>
                         {checkDate(day, month, year)
-                            ? <div style={{ backgroundColor: 'green' }} className={styles.dateLabel}>
-                                <p >{[day, monthName].join([' '])}</p>
+                            ? <div style={deadlineSoon() ? { backgroundColor: '#ebc934' } :{ backgroundColor: 'green' }} className={styles.dateLabel}>
+                                <p>{[day, monthName].join([' '])}</p>
                             </div>
                             : <div style={{ backgroundColor: 'red' }} className={styles.endDeadline }>
                                 <p>Просрочено</p>
