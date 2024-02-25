@@ -15,7 +15,6 @@ const taskReducer = (state = initState, action) => {
             return {
                 ...state,
                 tasks: [...state.tasks, { id: action.id, task: action.task, deadline: action.deadline, tasksType: action.tasksType }],
-                taskID: String(Number(state.taskID) + 1)
             }
         }
         case DELETE_TASK: {

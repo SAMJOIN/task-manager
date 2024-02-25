@@ -34,9 +34,9 @@ let Task = (props) => {
         props.editTasks(props.id, formData.task, formData.deadline, formData.tasksType);
     }
 
-    const checkDate = (day, month, year) => {
+    const checkDate = () => {
         let now = new Date();
-        return now.getDate() < day && now.getMonth() + 1 <= month && now.getFullYear() <= year;
+        return  now.getTime() < date.getTime();
     }
 
     let [formOpen, toggleForm] = useState(false); // Состояние формы

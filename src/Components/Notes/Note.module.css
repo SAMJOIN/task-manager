@@ -1,0 +1,42 @@
+.noteBlock {
+    height: max-content;
+    width: 300px;
+    /* border: 1px solid black; */
+    margin: 20px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    box-shadow: 0 0 5px 0 rgb(103, 103, 103);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.noteBlock:hover {
+    scale: 1.03;
+    transition: 0.2s;
+}
+
+.title {
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: rgb(255, 1, 1);
+    text-align: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 24px;
+}
+
+.note {
+    margin: 10px;
+    height: 80%;
+    font-size: 16px;
+}
+
+.date {
+    display: flex;
+    justify-content: end;
+    margin: 8px;
+}

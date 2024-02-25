@@ -1,10 +1,9 @@
 import { Field, initialize, reduxForm } from "redux-form"
 import styled from "styled-components";
 import { useEffect } from "react";
-import styles from './newTaskForm.module.css';
 import Textarea from '../../FormControl/Textarea'
-import Selector from "../../FormControl/Selector";
-import renderDateTimePicker from "../../FormControl/DataTimePicker";
+import styles from './Notes.module.css'
+import Input from "../../FormControl/Input";
 
 
 const FormWrapper = styled.form`
@@ -46,15 +45,15 @@ const Mount = styled.div`
 
 const required = value => value ? undefined : 'Required'
 
-let NewTaskForm = (props) => {
+const NewNoteForm = (props) => {
 
     // Инициализируем пропсы, чтобы прокинуть их в форму
     useEffect(() => {
         props.initialize(
             {
-                task: props.task,
-                deadline: props.deadline,
-                tasksType: props.tasksType
+                title: props.title,
+                note: props.note,
+                date: props.date
             })
     }, [])
 
@@ -64,17 +63,16 @@ let NewTaskForm = (props) => {
             <FormWrapper onSubmit={props.handleSubmit}>
                 <div style={{ display: "flex", width: '100%' }}>
                     <div>
-                        <Label>Type</Label>
-                        <Field component={Selector} name="tasksType" placeholder="Choose type" validate={required} />
+                        <Label>Title</Label>
+                        <Field component={Input} name="title" placeholder="Write title" validate={required} />
                     </div>
-                    <div>
-                        <Label>Deadline</Label>
-                        <Field name="deadline" component={renderDateTimePicker} className={styles.deadline} validate={required} />
+                    <div style={{display: 'flex', flexDirection:'column-reverse'}}>
+                        <Field className={styles.colorInput} defaultValue="#fc1100" component="input" name="color" type="color" />
                     </div>
                 </div>
                 <div>
-                    <Label>Task</Label>
-                    <Field placeholder="Write task here" component={Textarea} name="task" wrap="soft" validate={required} />
+                    <Label>Note</Label>
+                    <Field placeholder="Write note here" component={Textarea} name="note" wrap="soft" validate={required} />
                 </div>
                 <div className={styles.btnBar}>
                     <button className={styles.button} type="submit">
@@ -82,9 +80,9 @@ let NewTaskForm = (props) => {
                         <span className={styles.label}>Save</span>
                     </button>
 
-                    {props.task
+                    {props.note
                         ?
-                        <button className={styles.closeButton} onClick={props.deleteTask}>
+                        <button className={styles.closeButton} onClick={props.deleteNote}>
                             <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" className={styles.icon}>
                                 <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
                             </svg>
@@ -97,5 +95,5 @@ let NewTaskForm = (props) => {
 }
 
 export default reduxForm({
-    form: "taskForm"
-})(NewTaskForm);
+    form: "noteForm"
+})(NewNoteForm);

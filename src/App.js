@@ -7,12 +7,15 @@ import Nav from './Components/Nav/Nav';
 import { BrowserRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getTasks } from './Redux/task-reducer';
+import { getNotes } from './Redux/note-reducer';
 import { useEffect } from 'react';
+import NotesContainer from './Components/Notes/Notes';
 
 function App(props) {
 
   useEffect(() => {
-    props.getTasks()
+    props.getTasks();
+    props.getNotes();
   }, [])
 
   return (
@@ -22,7 +25,7 @@ function App(props) {
         <div className='wrapper-content'>
           <Routes>
             <Route path='/Tasks' element={<TasksContainer />} />
-            <Route path='/Notes' element={<Notes />} />
+            <Route path='/Notes' element={<NotesContainer />} />
             <Route path='/Settings' element={<Settings />} />
           </Routes>
         </div>
@@ -34,4 +37,4 @@ function App(props) {
 
 
 
-export default connect(null, {getTasks})(App);
+export default connect(null, {getTasks,getNotes})(App);

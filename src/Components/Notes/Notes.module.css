@@ -1,0 +1,201 @@
+.mainBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* Кнопка добавить */
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(20, 20, 20);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none !important;
+}
+
+.svg {
+    width: 17px;
+    transition-duration: 0.3s;
+}
+
+.svg path {
+    fill: white;
+}
+
+.btn:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(255, 69, 69);
+    align-items: center;
+}
+
+.btn:hover .svg {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.btn::before {
+    display: none;
+    content: "Add";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+}
+
+.btn:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+}
+
+/* Кнопка сохранения */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 2px;
+    height: 40px;
+    width: 85px;
+    border: none;
+    background: #a549da3d;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.lable {
+    line-height: 22px;
+    font-size: 19px;
+    color: #A649DA;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    background: #a549da62;
+}
+
+.button:hover .svgIcon {
+    animation: lr 1s linear infinite;
+}
+
+@keyframes lr {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-1px);
+    }
+
+    75% {
+        transform: translateX(1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Заголовок с кнопкой */
+.header {
+    display: flex;
+    align-items: start;
+}
+
+.header button {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* Кнопка закрытия */
+.closeButton {
+    background-color: transparent;
+    position: relative;
+    border: none;
+    margin: 10px 10px 0 0;
+}
+
+.closeButton::after {
+    content: 'delete';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(168, 7, 7);
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: .2s linear;
+    transition-delay: .2s;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.icon {
+    transform: scale(1.2);
+    transition: .2s linear;
+}
+
+.closeButton:hover>.icon {
+    transform: scale(1.5);
+}
+
+.closeButton:hover>.icon path {
+    fill: rgb(168, 7, 7);
+}
+
+.closeButton:hover::after {
+    visibility: visible;
+    opacity: 1;
+    top: -90%;
+}
+
+.btnBar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.colorInput {
+    height: 33px;
+    border: none;
+}
+
+input[type="color" i]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+input[type="color"] {
+    padding: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
